@@ -1,12 +1,11 @@
 {
-    "name": "buonzz/composer-library-template",
+    "name": "axwell/workshop",
     "description": "Boilerplate package for creating other packages.",
     "keywords": ["template", "composer", "package"],
-    "license": "DBAD",
     "authors": [
         {
-            "name": "Darwin Biler",
-            "email": "buonzz@gmail.com"
+            "name": "Evgeniy K",
+            "email": "axwell90@yandex.com"
         }
     ],
     "type": "project",
@@ -18,7 +17,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Buonzz\\Template\\": "src/"
+            "Axwell\\Workshop\\": "src/",
+            "Axwell\\Workshop\\Tests\\": "tests"
         }
     }
 }

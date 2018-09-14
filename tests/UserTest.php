@@ -1,5 +1,7 @@
-<?php 
+<?php namespace Axwell\Workshop\Tests;
+
 use PHPUnit\Framework\TestCase;
+use \Axwell\Workshop\User;
 
 /**
 *  Corresponding Class to test YourClass class
@@ -21,7 +23,7 @@ class YourClassTest extends TestCase
   */
   public function testIsThereAnySyntaxError()
   {
-	$var = new Buonzz\Template\YourClass;
+	$var = new User;
 	$this->assertTrue(is_object($var));
 	unset($var);
   }
@@ -35,7 +37,7 @@ class YourClassTest extends TestCase
   */
   public function testMethod1()
   {
-	$var = new Buonzz\Template\YourClass;
+	$var = new User;
 	$this->assertTrue($var->method1("hey") == 'Hello World');
 	unset($var);
   } 
