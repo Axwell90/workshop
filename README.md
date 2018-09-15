@@ -9,11 +9,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use \Workshop\GeolocationApp\GeoApp;
 use \Workshop\GeolocationApp\GeoApiService;
 
-$objApi = new GeoApiService();
-$objApi->setUrl('127.0.0.1');
-$objApi->setMethod('GET');
-
-$app = new GeoApp($objApi);
+$app = new GeoApp(new GeoApiService());
 
 /** @var \Workshop\GeolocationApp\GeoData $geoData */
 $geoData = $app->getDataByIP();
