@@ -11,12 +11,14 @@ namespace Axwell\Workshop;
 
 class Request
 {
+    const URL = 'http://ipgeobase.ru:7020/geo?ip=';
+
     public $url;
     public $method = 'GET';
 
     function __construct($url)
     {
-        $this->url = $url;
+        $this->url = self::URL.$url;
     }
 
     public function send($url, $method = "")

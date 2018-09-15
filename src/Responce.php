@@ -23,17 +23,7 @@ class Responce
     {
         $xml = simplexml_load_string($this->content) or die("Error: Cannot create object");
 
-        $this->objContent = $xml;
-    }
-
-    public function getCountry()
-    {
-        return (string)$this->objContent->ip->country;
-    }
-
-    public function getCity()
-    {
-        return (string)$this->objContent->ip->city;
+        return new GeoData($xml);
     }
 
 }
