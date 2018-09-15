@@ -6,15 +6,18 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use \Axwell\Workshop\Request;
-use \Axwell\Workshop\Response;
-use \Axwell\Workshop\GeoData;
+use \Workshop\GeolocationApp\GeoApp;
+use \Workshop\GeolocationApp\GeoApiService;
 
-$objRequest = new \Workshop\Request('127.0.0.1');
+$objApi = new GeoApiService();
+$objApi->setUrl('127.0.0.1');
+$objApi->setMethod('GET');
 
-$objResponse = $objRequest->send($objRequest->url);
+$app = new GeoApp($objApi);
 
-$geoData = $objResponse->parseResponse();
+/** @var \Workshop\GeolocationApp\GeoData $geoData */
+$geoData = $app->getDataByIP();
 
 var_dump($geoData);
+var_dump($geoData->getCountry());
 ```

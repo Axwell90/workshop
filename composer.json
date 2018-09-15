@@ -1,5 +1,5 @@
 {
-    "name": "axwell/workshop",
+    "name": "workshop/geolocationapp",
     "description": "Boilerplate package for creating other packages.",
     "keywords": ["template", "composer", "package"],
     "authors": [
@@ -10,15 +10,16 @@
     ],
     "type": "project",
     "require": {
-		"php": ">=7.1"
+		"php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
 		"phpunit/phpunit": "6.*"
     },
     "autoload": {
         "psr-4": {
-            "Axwell\\Workshop\\": "src/",
-            "Axwell\\Workshop\\Tests\\": "tests"
+            "Workshop\\GeolocationApp\\": "src/",
+            "Workshop\\GeolocationApp\\Tests\\": "tests"
         }
     }
 }

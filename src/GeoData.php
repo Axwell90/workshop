@@ -6,28 +6,26 @@
  * Time: 22:27
  */
 
-namespace Axwell\Workshop;
+namespace Workshop\GeolocationApp;
 
 
 class GeoData
 {
-    private $country;
-    private $city;
+    private $data;
 
-    public function __construct($objXml)
+    public function __construct($data)
     {
-        $this->country = (string)$objXml->ip->country;
-        $this->city = (string)$objXml->ip->city;
+        $this->data = $data;
     }
 
     public function getCountry()
     {
-        return $this->country;
+        return $this->data->country;
     }
 
     public function getCity()
     {
-        return $this->city;
+        return $this->data->city;
     }
 
 }
