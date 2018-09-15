@@ -15,7 +15,6 @@ class GeoApiService extends Service
 {
     const URL = 'http://ip-api.com/json/';
 
-    private $url;
     public $method = 'GET';
 
     /**
@@ -31,22 +30,17 @@ class GeoApiService extends Service
         $this->httpClient = $client ? : new Client();
     }
 
-    function setUrl($url)
-    {
-        $this->url = self::URL.$url;
-    }
-
     function setMethod($method)
     {
         $this->method = $method;
     }
 
-        public function getDataByIP()
+        public function getDataByIP($ip)
     {
         //$client = new \GuzzleHttp\Client();
 
         //$res = $client->request($this->method, $this->url);
-        $res = $this->httpClient->request($this->method, $this->url);
+        $res = $this->httpClient->request($this->method, self::URL.$ip);
 
         if ($res->getStatusCode() !== 200) { /* Handle and return error */ }
 

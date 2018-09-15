@@ -37,19 +37,40 @@ class GeoApiTest extends TestCase
 }
 JSON;
 
+        $geoApi = $this->createGeoApi()->getDataByIP('46.148.196.76');
+        $this->assertEquals(\GuzzleHttp\json_decode($json, true), (array)$geoApi->getData());
+    }
+
+    public function testRequestValue()
+    {
+        $json = <<<JSON
+{
+    "as": "AS21367 Wiland Ltd",
+    "city": "Moscow",
+    "country": "Russia",
+    "countryCode": "RU",
+    "isp": "Wiland Ltd",
+    "lat": 55.7522,
+    "lon": 37.6156,
+    "org": "Wiland Ltd",
+    "query": "46.148.196.76",
+    "region": "MOW",
+    "regionName": "Moscow",
+    "status": "success",
+    "timezone": "Europe/Moscow",
+    "zip": "129344"
+}
+JSON;
+
         $geoData = $this->createGeoData($json);//->getDataByIP('91.76.0.2');
 
         /** @var \Workshop\GeolocationApp\GeoData $geoData */
         $this->assertEquals('Russia', $geoData->getCountry());
-
-        //$geoApi = $this->createGeoApi()->getDataByIP();
-        //$this->assertEquals('Russia', $geoApi);
     }
 
     private function createGeoApi()
     {
         $objApi = new GeoApiService();
-        $objApi->setUrl('46.148.196.76');
         $objApi->setMethod('GET');
 
         return $objApi;

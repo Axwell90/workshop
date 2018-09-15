@@ -17,8 +17,8 @@ class GeoApp
     {
         $this->service = $service;
     }
-    public function getDataByIP()
+    public function getDataByIP($ip)
     {
-        return $this->service->getDataByIP();
+        return $this->service->getDataByIP($ip);
     }
 }

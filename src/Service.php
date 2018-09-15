@@ -11,5 +11,5 @@ namespace Workshop\GeolocationApp;
 
 abstract class Service
 {
-    abstract function getDataByIP();
+    abstract function getDataByIP($ip);
 }

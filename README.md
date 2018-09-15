@@ -18,6 +18,6 @@ $app = new GeoApp($objApi);
 /** @var \Workshop\GeolocationApp\GeoData $geoData */
 $geoData = $app->getDataByIP();
 
-var_dump($geoData);
+var_dump($geoData->getData());
 var_dump($geoData->getCountry());
 ```

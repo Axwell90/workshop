@@ -18,6 +18,11 @@ class GeoData
         $this->data = $data;
     }
 
+    public function getData()
+    {
+        return $this->data;
+    }
+
     public function getCountry()
     {
         return $this->data->country;
