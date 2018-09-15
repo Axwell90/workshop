@@ -8,6 +8,8 @@
 
 namespace Workshop\GeolocationApp;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 
 class GeoApiService extends Service
 {
@@ -15,6 +17,19 @@ class GeoApiService extends Service
 
     private $url;
     public $method = 'GET';
+
+    /**
+     * @var ClientInterface
+     */
+    private $httpClient;
+
+    /**
+     * @param ClientInterface|null $client
+     */
+    public function __construct(ClientInterface $client = null)
+    {
+        $this->httpClient = $client ? : new Client();
+    }
 
     function setUrl($url)
     {
@@ -26,11 +41,12 @@ class GeoApiService extends Service
         $this->method = $method;
     }
 
-    public function getDataByIP()
+        public function getDataByIP()
     {
-        $client = new \GuzzleHttp\Client();
+        //$client = new \GuzzleHttp\Client();
 
-        $res = $client->request($this->method, $this->url);
+        //$res = $client->request($this->method, $this->url);
+        $res = $this->httpClient->request($this->method, $this->url);
 
         if ($res->getStatusCode() !== 200) { /* Handle and return error */ }
 
