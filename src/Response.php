@@ -9,7 +9,7 @@
 namespace Axwell\Workshop;
 
 
-class Responce
+class Response
 {
     protected $content;
     protected $objContent;
@@ -19,7 +19,7 @@ class Responce
         $this->content = $content;
     }
 
-    public function parseResponce()
+    public function parseResponse()
     {
         $xml = simplexml_load_string($this->content) or die("Error: Cannot create object");
 

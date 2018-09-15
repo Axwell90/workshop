@@ -33,7 +33,7 @@ class Request
 
         if ($result === FALSE) { /* Handle and return error */ }
 
-        return new Responce($result);
+        return new Response($result);
 
     }
 }
