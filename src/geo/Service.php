@@ -6,7 +6,7 @@
  * Time: 16:09
  */
 
-namespace Workshop\GeolocationApp;
+namespace Eka\Workshop\Geo;
 
 
 abstract class Service
