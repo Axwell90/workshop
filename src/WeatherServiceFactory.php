@@ -15,24 +15,41 @@ class WeatherServiceFactory
     const FIRST_SERVICE = 'openweathermap';
     const SECOND_SERVICE = 'metaweather';
 
-    private static $services = [
+    private $services = [
         self::FIRST_SERVICE => FirstWeatherService::class,
         self::SECOND_SERVICE => SecondWeatherService::class,
     ];
 
-    public static function createService($serviceName = null, $httpClient = null)
+    private $service;
+
+    public function __construct($serviceName = self::FIRST_SERVICE, $additionalServices = [])
     {
-        $serviceName = $serviceName ?: self::getDefaultService();
-        if (!array_key_exists($serviceName, self::$services)) {
-            throw new \Exception('Service not supported');
-        }
-        return new self::$services[$serviceName]($httpClient);
+        $this->services = array_merge($this->services,$additionalServices);
+        $this->service = $this->createService($serviceName);
     }
 
-    public static function getServices()
+    private function createService($serviceName = null, $httpClient = null)
     {
-        return array_keys(self::$services);
+        //$serviceName = $serviceName ?: self::getDefaultService();
+        if (!array_key_exists($serviceName, $this->services)) {
+            throw new \Exception('Service not supported');
+        }
+        return new $this->services[$serviceName]($httpClient);
     }
+
+    public function getData($city, $serviceName = null)
+    {
+        if ($serviceName) {
+            return $this->createService($serviceName)->getData($city);
+        }
+        return $this->service->getData($city);
+    }
+
+//    public static function getServices()
+//    {
+//        return array_keys($this->services);
+//    }
+
     public static function getDefaultService()
     {
         return self::FIRST_SERVICE;

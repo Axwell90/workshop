@@ -11,12 +11,14 @@ namespace Eka\Workshop;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 
-class FirstWeatherService
+class FirstWeatherService implements IWeatherService
 {
     const KEY = 'b6907d289e10d714a6e88b30761fae22';
     const URL = 'http://openweathermap.org/data/2.5/weather';
 
-    public function __construct($client = null)
+    private $httpClient;
+
+    public function __construct(ClientInterface $client = null)
     {
         $this->httpClient = $client ? : new Client();
     }

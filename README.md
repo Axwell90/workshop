@@ -37,6 +37,5 @@ echo $data[0]['main'];
 Использование в виде CLI приложения:
 
 ```php
-<?php
 bin/weather
 ```

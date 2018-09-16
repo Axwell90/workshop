@@ -11,11 +11,13 @@ namespace Eka\Workshop;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 
-class SecondWeatherService
+class SecondWeatherService implements IWeatherService
 {
     const URL = 'https://www.metaweather.com/api/location/search/';
 
-    public function __construct($client = null)
+    private $httpClient;
+
+    public function __construct(ClientInterface $client = null)
     {
         $this->httpClient = $client ? : new Client();
     }
