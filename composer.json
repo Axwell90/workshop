@@ -1,5 +1,5 @@
 {
-    "name": "workshop/geolocationapp",
+    "name": "eka/workshop",
     "description": "Boilerplate package for creating other packages.",
     "keywords": ["template", "composer", "package"],
     "authors": [
@@ -18,8 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Workshop\\GeolocationApp\\": "src/",
-            "Workshop\\GeolocationApp\\Tests\\": "tests"
+            "Eka\\Workshop\\": "src/",
+            "Eka\\Workshop\\Tests\\": "tests"
         }
     }
 }

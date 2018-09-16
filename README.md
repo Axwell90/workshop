@@ -6,12 +6,12 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use \Workshop\GeolocationApp\GeoApp;
-use \Workshop\GeolocationApp\GeoApiService;
+use \Workshop\Geo\GeolocationApp\GeoApp;
+use \Workshop\Geo\GeolocationApp\GeoApiService;
 
 $app = new GeoApp(new GeoApiService());
 
-/** @var \Workshop\GeolocationApp\GeoData $geoData */
+/** @var \Workshop\Geo\GeolocationApp\GeoData $geoData */
 $geoData = $app->getDataByIP();
 
 var_dump($geoData->getData());

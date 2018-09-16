@@ -9,8 +9,8 @@
 namespace Axwell\Workshop\Tests;
 
 use GuzzleHttp\ClientInterface;
-use Workshop\GeolocationApp\GeoData;
-use Workshop\GeolocationApp\GeoApiService;
+use Eka\Workshop\Geo\GeoData;
+use Eka\Workshop\Geo\GeoApiService;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 
@@ -18,6 +18,7 @@ class GeoApiTest extends TestCase
 {
     public function testRequestData()
     {
+        // TODO: array()
         $json = <<<JSON
 {
     "as": "AS21367 Wiland Ltd",
