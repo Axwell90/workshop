@@ -27,8 +27,8 @@ class WeatherTest extends TestCase
         ];
         $client = $this->createHttpClient($arWeather);
 
-        $objService = new WeatherServiceFactory($client);
-        $weather = $objService->createService()->getData('london')->getWeather();
+        $objService = new WeatherServiceFactory('openweathermap', array(), $client);
+        $weather = $objService->getData('london')->getWeather();
 
         $this->assertEquals($arWeather, $weather);
     }

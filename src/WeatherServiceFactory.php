@@ -22,10 +22,10 @@ class WeatherServiceFactory
 
     private $service;
 
-    public function __construct($serviceName = self::FIRST_SERVICE, $additionalServices = [])
+    public function __construct($serviceName = self::FIRST_SERVICE, $additionalServices = [], $httpClient = null)
     {
         $this->services = array_merge($this->services,$additionalServices);
-        $this->service = $this->createService($serviceName);
+        $this->service = $this->createService($serviceName, $httpClient);
     }
 
     private function createService($serviceName = null, $httpClient = null)
