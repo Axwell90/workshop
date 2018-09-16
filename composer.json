@@ -1,5 +1,6 @@
 {
     "name": "eka/workshop",
+    "bin": ["bin/wheather"],
     "description": "Boilerplate package for creating other packages.",
     "keywords": ["template", "composer", "package"],
     "authors": [
@@ -11,7 +12,8 @@
     "type": "project",
     "require": {
 		"php": ">=7.1",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.3",
+        "docopt/docopt": "^1.0"
     },
     "require-dev": {
 		"phpunit/phpunit": "6.*"

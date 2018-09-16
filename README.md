@@ -17,3 +17,26 @@ $geoData = $app->getDataByIP();
 var_dump($geoData->getData());
 var_dump($geoData->getCountry());
 ```
+
+Библиотека для получения информации о погоде
+
+Пример использования
+
+```php
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+Eka\Workshop\WeatherServiceFactory;
+
+$obj = new \Eka\Workshop\FirstWeatherService();
+$data = $obj->getData('london')->getWeather());
+
+echo $data[0]['main'];
+```
+
+Использование в виде CLI приложения:
+
+```php
+<?php
+bin/weather
+```
