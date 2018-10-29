@@ -20,8 +20,8 @@ $city = $argvHandler->args['<city>'];
 
 try {
     $objService = new WeatherServiceFactory();
-    $data = $objService->createService($service)->getData($city)->getData();
-    echo "$city: [weather: {$data['weather'][0]['main']}, description: {$data['weather'][0]['description']}]";
+    $data = $objService->getData($city)->getWeather();
+    echo "$city: [weather: {$data[0]['main']}, description: {$data[0]['description']}]";
 } catch (Exception $e) {
     echo "Error: {$e->getMessage()}";
 }

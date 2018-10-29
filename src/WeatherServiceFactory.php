@@ -45,10 +45,13 @@ class WeatherServiceFactory
         return $this->service->getData($city);
     }
 
-//    public static function getServices()
-//    {
-//        return array_keys($this->services);
-//    }
+    public static function getServices()
+    {
+        return array_keys([
+            self::FIRST_SERVICE => FirstWeatherService::class,
+            self::SECOND_SERVICE => SecondWeatherService::class,
+        ]);
+    }
 
     public static function getDefaultService()
     {

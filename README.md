@@ -1,6 +1,8 @@
+**Hexlet workshop**
+
 Библиотека для получения гео данных по IP
 
-Пример использования
+Пример использования:
 
 ```php
 <?php
@@ -20,16 +22,18 @@ var_dump($geoData->getCountry());
 
 Библиотека для получения информации о погоде
 
-Пример использования
+Пример использования:
 
 ```php
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-Eka\Workshop\WeatherServiceFactory;
+use \Eka\Workshop\WeatherServiceFactory;
+
+$service = $argv[1];
 
 $objService = new WeatherServiceFactory($service);
-$data = $objService->getData('london')->getWeather());
+$data = $objService->getData('london')->getWeather();
 
 echo $data[0]['main'];
 ```
@@ -37,5 +41,5 @@ echo $data[0]['main'];
 Использование в виде CLI приложения:
 
 ```php
-bin/weather
+./bin/weather --service=openweathermap london
 ```
